@@ -4,7 +4,6 @@ import os
 import time
 import threading
 
-
 def js_checker():
 	global sleepFlag
 	global start_time
@@ -21,17 +20,22 @@ def js_checker():
 		#print(struct.unpack("LhBB", event))
 		event = file.read(EVENT_SIZE)
 
+print("pi_sleepMode Start")
 start_time = time.time()
 sleepFlag = False
 th = threading.Thread(target=js_checker, name="[js_checker]", args=())
+th.setDaemon(True)
 th.start()
+try:
+	while True:
+		duringTime = (time.time() - start_time )/60
+		print("--- runtime : %0.2f Minutes "%duringTime  )
+		if sleepFlag == False:
+			if duringTime > 0.10:
+				os.system("ps -ef | grep emulators | grep -v grep | awk '{print $2}' | xargs kill -SIGSTOP &")
+				print("game pause")
+				sleepFlag = True
+		time.sleep(1)
 
-while True:
-	duringTime = (time.time() - start_time )/60
-	print("--- runtime : %0.2f Minutes "%duringTime  )
-	if sleepFlag == False:
-		if duringTime > 0.10:
-			os.system("ps -ef | grep emulators | grep -v grep | awk '{print $2}' | xargs kill -SIGSTOP &")
-			print("game pause")
-			sleepFlag = True
-	time.sleep(1)
+except KeyboardInterrupt:
+	print("pi_sleepMode End")
