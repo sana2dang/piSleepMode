@@ -4,16 +4,18 @@ import os
 import time
 import threading
 
+actionPath = "/home/pi/dev/piSleep/pAction/"
+
 def js_checker():
 	global sleepFlag
 	global start_time
 	js_path = "/dev/input/js0"
-	EVENT_SIZE = struct.calcsize("LhBB");
+	EVENT_SIZE = struct.calcsize("L");
 	file = open(js_path, "rb")
 	event = file.read(EVENT_SIZE)
 	while event:
 		if sleepFlag == True:
-			os.system("ps -ef | grep emulators | grep -v grep | awk '{print $2}' | xargs kill -SIGCONT &")
+			os.system(actionPath + "pStart.sh &")
 			sleepFlag = False
 			print("continue game")
 		#print(struct.unpack("LhBB", event))
@@ -32,7 +34,7 @@ try:
 		print("--- runtime : %0.2f Minutes "%duringTime  )
 		if sleepFlag == False:
 			if duringTime > 0.10:
-				os.system("ps -ef | grep emulators | grep -v grep | awk '{print $2}' | xargs kill -SIGSTOP &")
+				os.system(actionPath  + "pStop.sh &")
 				print("game pause")
 				sleepFlag = True
 		time.sleep(1)
