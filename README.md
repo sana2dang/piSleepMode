@@ -31,3 +31,7 @@ piSleep.py 분(소수점가능)
 
 emulator
 pcsx
+
+
+
+※ 현재 테스트 버전
