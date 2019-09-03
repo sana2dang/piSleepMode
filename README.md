@@ -1,6 +1,12 @@
 # pi_sleepMode
 파이 슬립모드
 
+pStop.sh <-- 컨트롤러 일정시간 조작이 없을 때 수행할 업무 : 프로세스 멈추기
+pStart.sh <-- pStop.sh이 동작한 후 컨트롤러 조작하면 수행할 업무 : 프로세스 깨우기
+
+
+
+선행작업
 
 sudo chmod 755 ./pAction/pStart.sh
 
