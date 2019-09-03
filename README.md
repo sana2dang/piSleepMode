@@ -25,3 +25,9 @@ piSleep.py 분(소수점가능)
 예) python piSleep.py 1.1
 
 
+
+
+프로세스명이 아래 문구를 포함하면 일시정지
+
+emulator
+pcsx
