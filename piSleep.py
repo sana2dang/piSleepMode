@@ -3,7 +3,9 @@ import struct
 import os
 import time
 import threading
+import sys
 
+stopDelay = float(sys.argv[1])
 actionPath = "/home/pi/dev/piSleep/pAction/"
 
 def js_checker():
@@ -33,7 +35,7 @@ try:
 		duringTime = (time.time() - start_time )/60
 		print("--- runtime : %0.2f Minutes "%duringTime  )
 		if sleepFlag == False:
-			if duringTime > 0.10:
+			if duringTime > stopDelay:
 				os.system(actionPath  + "pStop.sh &")
 				print("game pause")
 				sleepFlag = True
