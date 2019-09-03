@@ -3,6 +3,14 @@
 
 
 sudo chmod 755 ./pAction/pStart.sh
+
 sudo chmod 755 ./pAction/pStop.sh
 
-python piSleep.py
+실행 방법
+
+piSleep.py 분(소수점가능)
+
+
+예) python piSleep.py 1.1
+
+
