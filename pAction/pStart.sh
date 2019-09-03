@@ -2,3 +2,5 @@
 
 ps -ef | grep emulators | grep -v grep | awk '{print $2}' | xargs kill -SIGCONT > /dev/null 2>&1
 ps -ef | grep pcsx | grep -v grep | awk '{print $2}' | xargs kill -SIGCONT > /dev/null 2>&1
+ps -ef | grep cannonball | grep -v grep | awk '{print $2}' | xargs kill -SIGCONT > /dev/null 2>&1
+ps -ef | grep SorR.dat | grep -v grep | awk '{print $2}' | xargs kill -SIGCONT > /dev/null 2>&1
