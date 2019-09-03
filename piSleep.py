@@ -15,9 +15,9 @@ def js_checker():
 		if sleepFlag == True:
 			os.system("ps -ef | grep emulators | grep -v grep | awk '{print $2}' | xargs kill -SIGCONT &")
 			sleepFlag = False
-			start_time = time.time()
 			print("continue game")
 		#print(struct.unpack("LhBB", event))
+		start_time = time.time()
 		event = file.read(EVENT_SIZE)
 
 print("pi_sleepMode Start")
