@@ -6,7 +6,7 @@ pStart.sh <-- pStop.sh이 동작한 후 컨트롤러 조작하면 수행할 업�
 
 
 
-*선행작업
+- 선행작업
 
 sudo chmod 755 ./pAction/pStart.sh
 
@@ -16,7 +16,7 @@ sudo chmod 755 ./pAction/pStop.sh
 piSleep.py 소스내부의 actionPath 경로 바꿔주기
 
 
-*실행 방법
+- 실행 방법
 
 piSleep.py 분(소수점가능)
 
