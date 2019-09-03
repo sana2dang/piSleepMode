@@ -6,7 +6,7 @@ import threading
 import sys
 
 stopDelay = float(sys.argv[1])
-actionPath = "/home/pi/dev/piSleep/pAction/"
+actionPath = "/home/pi/dev/piSleepMode/pAction/"
 
 def js_checker():
 	global sleepFlag
