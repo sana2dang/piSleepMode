@@ -20,7 +20,7 @@ def js_checker():
 			os.system(actionPath + "pStart.sh &")
 			sleepFlag = False
 			print("continue game")
-		#print(struct.unpack("LhBB", event))
+		#print(struct.unpack("L", event))
 		start_time = time.time()
 		event = file.read(EVENT_SIZE)
 
