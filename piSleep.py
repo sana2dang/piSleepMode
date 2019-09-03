@@ -11,7 +11,7 @@ actionPath = "/home/pi/dev/piSleepMode/pAction/"
 def js_checker():
 	global sleepFlag
 	global start_time
-	js_path = "/dev/input/js0"
+	global js_path
 	EVENT_SIZE = struct.calcsize("L");
 	file = open(js_path, "rb")
 	event = file.read(EVENT_SIZE)
@@ -27,11 +27,18 @@ def js_checker():
 print("pi_sleepMode Start")
 start_time = time.time()
 sleepFlag = False
+js_path = "dev/input/event0"
 th = threading.Thread(target=js_checker, name="[js_checker]", args=())
 th.setDaemon(True)
 th.start()
 try:
 	while True:
+
+		if os.path.exists("/dev/input/event1") == True:
+			js_path = "/dev/input/event1"
+		else:
+			js_path = "/dev/input/event0"
+
 		duringTime = (time.time() - start_time )/60
 		print("--- runtime : %0.2f Minutes "%duringTime  )
 		if sleepFlag == False:
