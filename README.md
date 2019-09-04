@@ -1,9 +1,9 @@
 # pi_sleepMode
 - 파이 슬립모드
 
-pStop.sh <-- 컨트롤러 일정시간 조작이 없을 때 수행할 업무 : 프로세스 멈추기
+./pAction/pStop.sh <-- 컨트롤러 일정시간 조작이 없을 때 수행할 업무 : 프로세스 멈추기
 
-pStart.sh <-- pStop.sh이 동작한 후 컨트롤러 조작하면 수행할 업무 : 프로세스 깨우기
+./pAction/pStart.sh <-- pStop.sh이 동작한 후 컨트롤러 조작하면 수행할 업무 : 프로세스 깨우기
 
 
 
@@ -22,36 +22,41 @@ sudo chmod 755 ./uninstall.sh
 
 
 
-삭제 및 비활성화시
+- uninstall 방법
 
 ./uninstall.sh
 
 
-- 선행작업
 
-sudo chmod 755 ./pAction/pStart.sh
+- 실행방법
 
-sudo chmod 755 ./pAction/pStop.sh
+게임 실행시 자동으로 실행되며 
 
+컨트롤러 조작이 없을 경우 1분 뒤 게임이 일시정지 됩니다.
 
-piSleep.py 소스내부의 actionPath 경로 바꿔주기
-
-
-- 실행 방법
-
-piSleep.py 분(소수점가능)
-
-
-예) python piSleep.py 1.1
+컨트롤러를 다시 조작하면 게임이 다시 시작됩니다.
 
 
 
+- 슬립 시간 변경하기
 
-프로세스명이 아래 문구를 포함하면 일시정지
+/opt/retropie/configs/all/runcommand-onstart.sh 를 편집기로 열어서
+
+
+sudo python /opt/retropie/configs/all/piSleepMode/piSleep.py 1.0 & > /dev/null 2>&1
+
+
+5분30초로 변경 하기
+
+piSleep.py 1.0 을 -> piSleep.py 5.5
+
+
+
+
+
+- 프로세스명이 아래 문구를 포함하면 일시정지
 
 emulator
 pcsx
-
-
-
-※ 현재 테스트 버전
+cannonball
+SorR.dat
