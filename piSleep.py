@@ -6,7 +6,7 @@ import threading
 import sys
 
 stopDelay = float(sys.argv[1])
-actionPath = "/home/pi/dev/piSleepMode/pAction/"
+actionPath = "/opt/retropie/configs/all/piSleepMode/pAction/"
 
 def js_checker():
 	global sleepFlag
@@ -24,12 +24,12 @@ def js_checker():
 		if sleepFlag == True:
 			os.system(actionPath + "pStart.sh &")
 			sleepFlag = False
-			print("continue game")
+			#print("continue game")
 		#print(struct.unpack("L", event))
 		start_time = time.time()
 		event = file.read(EVENT_SIZE)
 
-print("pi_sleepMode Start")
+#print("pi_sleepMode Start")
 start_time = time.time()
 sleepFlag = False
 th = threading.Thread(target=js_checker, name="[js_checker]", args=())
@@ -38,11 +38,11 @@ th.start()
 try:
 	while True:
 		duringTime = (time.time() - start_time )/60
-		print("--- runtime : %0.2f Minutes "%duringTime  )
+		#print("--- runtime : %0.2f Minutes "%duringTime  )
 		if sleepFlag == False:
 			if duringTime > stopDelay:
 				os.system(actionPath  + "pStop.sh &")
-				print("game pause")
+				#print("game pause")
 				sleepFlag = True
 		time.sleep(1)
 
