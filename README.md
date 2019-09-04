@@ -7,6 +7,25 @@ pStart.sh <-- pStop.sh이 동작한 후 컨트롤러 조작하면 수행할 업�
 
 
 
+
+- install 방법
+
+git clone https://github.com/sana2dang/piSleepMode
+
+cd piSleepMode
+
+sudo chmod 755 ./install.sh
+sudo chmod 755 ./uninstall.sh
+
+./install.sh
+
+
+
+삭제 및 비활성화시
+
+./uninstall.sh
+
+
 - 선행작업
 
 sudo chmod 755 ./pAction/pStart.sh
