@@ -57,6 +57,9 @@ piSleep.py 1.0 을 -> piSleep.py 5.5
 - 프로세스명이 아래 문구를 포함하면 일시정지
 
 emulator
+
 pcsx
+
 cannonball
+
 SorR.dat
