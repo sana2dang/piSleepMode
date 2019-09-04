@@ -15,7 +15,7 @@ echo "runcommand-onstart.sh / runcommand-onend.sh line add"
 sudo sed -i '/piSleep.py/d' /opt/retropie/configs/all/runcommand-onstart.sh
 sudo sed -i '/piSleep.py/d' /opt/retropie/configs/all/runcommand-onend.sh
 
-echo "sudo python /opt/retropie/configs/all/piSleepMode/piSleep.py 1.0 & > /dev/null 2>&1" >> /opt/retropie/configs/all/runcommand-onstart.sh
+echo "python /opt/retropie/configs/all/piSleepMode/piSleep.py 1.0 & > /dev/null 2>&1" >> /opt/retropie/configs/all/runcommand-onstart.sh
 echo "ps -ef | grep piSleep.py | grep -v grep | awk '{print $2}' | xargs sudo kill -9" >> /opt/retropie/configs/all/runcommand-onend.sh
 
 
