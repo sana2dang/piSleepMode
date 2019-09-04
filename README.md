@@ -14,10 +14,6 @@ git clone https://github.com/sana2dang/piSleepMode
 
 cd piSleepMode
 
-sudo chmod 755 ./pAction/pStart.sh
-
-sudo chmod 755 ./pAction/pStop.sh
-
 sudo chmod 755 ./install.sh
 
 sudo chmod 755 ./uninstall.sh
